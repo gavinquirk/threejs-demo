@@ -7,8 +7,8 @@ const camera = new THREE.PerspectiveCamera(
   1000 // Far Plane
 );
 
-// Enable WebGL
-const renderer = new THREE.WebGLRenderer();
+// Enable WebGL, antialiasing
+const renderer = new THREE.WebGLRenderer({ antialias: true });
 
 // Set size to full screen
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -28,6 +28,9 @@ camera.position.z = 5;
 
 function animate() {
   requestAnimationFrame(animate);
+
+  cube.rotation.x += 0.01;
+  cube.rotation.y += 0.01;
 
   renderer.render(scene, camera);
 }
